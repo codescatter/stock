@@ -1,0 +1,14 @@
+db_connector:
+  db: mysql
+  host: 127.0.0.1
+  user: root
+  password: Har@#0401
+  database: dev_db_main
+
+activity_logger: False
+count: 50
+
+app:
+  host: 127.0.0.1
+  port: 5000
+  debug: True

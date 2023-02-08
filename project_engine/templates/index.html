@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/static/assets/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/static/assets/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/assets/css/jquery-ui.css">
+    <style type="text/css">
+        .vh-100 {
+            height: calc(100vh - 76.8px) !important;
+        }
+
+        /*** PANEL INFO ***/
+        .panel-info {
+            border-color: #bce8f1;
+        }
+
+        .panel-info>.panel-heading {
+            color: #31708f;
+            background-color: transparent;
+            border-color: #bce8f1;
+        }
+
+        .panel-info {
+            border-color: #bce8f1;
+        }
+
+        .nav-tabs .nav-link {
+            border-color: #31708f !important;
+        }
+
+        .nav-tabs .nav-link.active {
+            border-color: #31708f #31708f #fff !important;
+        }
+
+        .with-nav-tabs.panel-info .nav-tabs>li>a,
+        .with-nav-tabs.panel-info .nav-tabs>li>a:hover,
+        .with-nav-tabs.panel-info .nav-tabs>li>a:focus {
+            color: #31708f;
+        }
+
+        .with-nav-tabs.panel-info .nav-tabs>.open>a,
+        .with-nav-tabs.panel-info .nav-tabs>.open>a:hover,
+        .with-nav-tabs.panel-info .nav-tabs>.open>a:focus,
+        .with-nav-tabs.panel-info .nav-tabs>li>a:hover,
+        .with-nav-tabs.panel-info .nav-tabs>li>a:focus {
+            color: #31708f;
+            background-color: #bce8f1;
+            border-color: transparent;
+        }
+
+        .with-nav-tabs.panel-info .nav-tabs>li.active>a,
+        .with-nav-tabs.panel-info .nav-tabs>li.active>a:hover,
+        .with-nav-tabs.panel-info .nav-tabs>li.active>a:focus {
+            color: #31708f;
+            background-color: #fff;
+            border-color: #bce8f1;
+            border-bottom-color: transparent;
+        }
+
+        .with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu {
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+
+        .with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>li>a {
+            color: #31708f;
+        }
+
+        .with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>li>a:hover,
+        .with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>li>a:focus {
+            background-color: #bce8f1;
+        }
+
+        .with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>.active>a,
+        .with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>.active>a:hover,
+        .with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus {
+            color: #fff;
+            background-color: #31708f;
+        }
+    </style>
+</head>
+
+<body id="page-top" class="d-flex flex-column vh-100">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- 
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Scalp <sup>exe</sup></div>
+            </a>
+
+        </ul> -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column vh-100">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) 
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>-->
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="/">
+                                <img class="img-profile rounded-circle" src="/static/assets/img/undraw_profile.svg">
+                                <span
+                                    class="mr-2 d-inline sidebar-brand-text h5 mb-0 font-weight-bold text-gray-800 mx-3">Scalp
+                                    <sup>exe</sup></span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="/static/assets/img/undraw_profile_1.svg" alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="/static/assets/img/undraw_profile_2.svg" alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="/static/assets/img/undraw_profile_3.svg" alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle" src="/static/assets/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Earnings (Monthly)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Annual) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Earnings (Annual)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tasks Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Pending Requests</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="card card-primary card-outline w-100">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <form class="form-inline">
+                                    <input type="text" class="form-control mb-2 mr-sm-2" id="inputSearchTerm"
+                                        placeholder="Type here .....">
+                                    <button id="btn-add-tab" type="button" class="btn btn-primary mb-2">Go</button>
+                                </form>
+                                <button id="dialog-link" data-dialog-link="1"
+                                    class="btn btn-lg btn-success dialog-link"> Start </button>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="panel with-nav-tabs panel-info">
+                                    <div class="panel-heading">
+                                        <ul class="nav nav-tabs" id="tab-list" role="tablist"> </ul>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="tab-content" id="tab-content"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dialog" title="Basic dialog">
+                                <p>This is the default dialog which is useful for displaying information. The dialog
+                                    window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+                                <p id="selectedTab"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white mt-auto">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Scalp 2021</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/static/assets/jquery/jquery.js"></script>
+    <script src="/static/assets/js/jquery-ui.js"></script>
+    <script src="/static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/static/assets/js/sb-admin-2.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        var button = '<button class="close ml-3" type="button" title="Remove this page">×</button>';
+        var tabNum = 1;
+        var maxTabNumber = 10;
+        var opened = 1;
+        var Tabs = [];
+        var Tabs_Value = [];
+        var tabs_len = 0;
+
+        //$('body').on('keyup', 'input[type=text]' function (e)
+        document.onkeydown = function (e) {
+
+            // console.log('tab-list' + document.activeElement.closest('#tab-list'))
+            // console.log('tab-content' + document.activeElement.closest('#tab-content'))
+
+            // const elementTabContent = document.activeElement.closest('#tab-content');
+
+            // if (elementTabContent != null) {
+
+            tabs_len = Tabs.length;
+
+            if (tabs_len > 0 && tabs_len < maxTabNumber && $('#dialog').dialog('isOpen') === true) {
+                e = e || window.event;
+
+                if (e.keyCode == '37') {
+                    // left arrow
+                    $('#selectedTab').html('left arrow => tab : ' + opened + ' & term : ' + $('a[data-tab="' + opened + '"]').attr('data-searchterm'));
+                    e.preventDefault();
+                    return false;
+                }
+                else if (e.keyCode == '38') {
+                    // up arrow
+                    $('#selectedTab').html('up arrow => tab : ' + opened + ' & term : ' + $('a[data-tab="' + opened + '"]').attr('data-searchterm'));
+                    e.preventDefault();
+                    return false;
+                }
+                else if (e.keyCode == '39') {
+                    // right arrow
+                    $('#selectedTab').html('right arrow => tab : ' + opened + ' & term : ' + $('a[data-tab="' + opened + '"]').attr('data-searchterm'));
+                    e.preventDefault();
+                    return false;
+                }
+                else if (e.keyCode == '40') {
+                    // down arrow
+                    $('#selectedTab').html('down arrow => tab : ' + opened + ' & term : ' + $('a[data-tab="' + opened + '"]').attr('data-searchterm'));
+                    e.preventDefault();
+                    return false;
+                }
+
+            }
+
+            // }
+
+        };
+
+        $(document).ready(function () {
+
+            $("#dialog button.preventKeydown").keydown(function (event) {
+                event.preventDefault();
+            });
+
+            // Link to open the dialog
+            $("#dialog-link").click(function (event) {
+                tabs_len = Tabs.length;
+
+                if (tabs_len > 0)
+                    $("#dialog").dialog({ title: $('a[data-tab="' + opened + '"]').attr('data-searchterm') }).dialog("open");
+
+                event.preventDefault();
+            });
+
+
+            $("#dialog").dialog({
+                autoOpen: false,
+                width: 600,
+                closeOnEscape: false,
+                dialogClass: 'no-close',
+                buttons: [
+                    {
+                        text: "Buy",
+                        class: 'btn btn-success preventKeydown',
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    },
+                    {
+                        text: "Sell",
+                        class: 'btn btn-danger preventKeydown',
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    },
+                    {
+                        text: "Cancel",
+                        class: 'btn btn-primary preventKeydown',
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                ]
+            });
+
+            $('.js-example-basic-single').select2({
+                placeholder: 'Type here .....'
+            });
+
+            $('#btn-add-tab').click(function () {
+                fnClose_Dailog();
+
+                var inputSearchTerm = $('#inputSearchTerm').val();
+
+                tabs_len = Tabs.length;
+
+                if (typeof inputSearchTerm != 'undefined' && inputSearchTerm != null && inputSearchTerm.toString().trim() != '' && tabs_len < maxTabNumber) {
+
+                    var tabSearchTerm = $('a[data-searchterm="' + inputSearchTerm + '"]')
+
+                    if (typeof tabSearchTerm != 'undefined' && tabSearchTerm != null && tabSearchTerm.length > 0) {
+                        opened = parseInt(tabSearchTerm.attr('data-tab'));
+                        var tabPrevious = $('#tab-list a#tab-' + opened);
+                        tabPrevious.tab('show');
+                    }
+                    else {
+                        tabNum = Tabs.reduce((a, b) => Math.max(a, b), -Infinity);
+                        if (tabNum == -Infinity) { tabNum = 0; }
+                        tabNum++;
+
+                        $('#tab-list').append($('<li><a class="nav-link" id="tab-' + tabNum + '" data-searchterm="' + inputSearchTerm + '" data-tab="' + tabNum + '" data-toggle="pill" href="#tab-content-' + tabNum + '" role="tab" aria-controls="tab-content-' + tabNum + '" aria-selected="false">' + inputSearchTerm + ' <button class="close ml-3" type="button" title="Remove this tab" tabindex="-1">×</button></a></li>'));
+                        $('#tab-content').append($('<div class="tab-pane fade" id="tab-content-' + tabNum + '" role="tabpanel" aria-labelledby="tab-' + tabNum + '">' +
+                            '<div class="card shadow mb-4"> ' +
+                            '<div class="card-header py-3 d-flex flex-row align-items-center justify-content-start"> ' +
+                            '<h6 class="m-0 font-weight-bold text-primary">' + inputSearchTerm + '</h6> ' +
+                            '</div> <div class="card-body"></div> </div> </div>'));
+
+                        opened = tabNum;
+
+                        fnClose_ActiveTab();
+
+                        var tabPrevious = $('#tab-list a#tab-' + opened);
+                        tabPrevious.tab('show');
+
+                        Tabs.push(tabNum);
+                        Tabs_Value.push(inputSearchTerm);
+                    }
+                }
+
+                return false;
+            });
+
+            $('#tab-list').on('click', '.close', function () {
+
+                fnClose_Dailog();
+
+                tabs_len = Tabs.length;
+
+                //if (tabs_len > 1) {
+
+                var tabNum = $(this).parents('a').attr('data-tab');
+                var tabSearchTerm = $(this).parents('a').attr('data-searchterm');
+
+                if (opened == parseInt(tabNum)) {
+                    $(this).parents('li').remove();
+                    $('#tab-' + tabNum).remove();
+                    $('#tab-content-' + tabNum).remove();
+
+                    var index = Tabs.indexOf(parseInt(tabNum));
+                    if (index > -1) { // only splice array when item is found
+                        Tabs.splice(index, 1); // 2nd parameter means remove one item only
+                    }
+
+                    if (Tabs.length > index) { opened = Tabs[index]; }
+                    else { opened = Tabs[index - 1]; }
+
+                    fnClose_ActiveTab();
+
+                    //display Previous tab                    
+                    var tabPrevious = $('#tab-list a#tab-' + opened);
+                    tabPrevious.tab('show');
+
+                    index = Tabs_Value.indexOf(tabSearchTerm);
+                    if (index > -1) { // only splice array when item is found
+                        Tabs_Value.splice(index, 1); // 2nd parameter means remove one item only
+                    }
+
+                }
+                //}
+
+                return false;
+            });
+
+            $('#tab-list').on('click', '.nav-link', function () {
+                fnClose_Dailog();
+
+                var tabNum = $(this).attr('data-tab');
+                opened = parseInt(tabNum);
+            });
+
+            $('#tab-list a').on('shown.bs.tab', function (event) {
+                fnClose_Dailog();
+
+                var x = $(event.target).text();         // active tab
+                var y = $(event.relatedTarget).text();  // previous tab
+            });
+
+            $('#tab-list').on('keyup', '.nav-link', function (e) {
+
+                if (e.which == 9) {
+                    var tabNum = $(this).attr('data-tab');
+
+                    var index = Tabs.indexOf(parseInt(tabNum));
+
+                    opened = Tabs[index];
+
+                    fnClose_ActiveTab();
+
+                    var tabPrevious = $('#tab-list a#tab-' + opened);
+                    tabPrevious.tab('show');
+                }
+            });
+
+            var list = document.getElementById("tab-list");
+        });
+
+        function fnClose_ActiveTab() {
+            fnClose_Dailog();
+            var tabLink = document.querySelectorAll(".nav-link");
+            var tabPane = document.querySelectorAll(".tab-pane");
+            tabLink.forEach(function (item) { item.classList.remove("active"); });
+            tabPane.forEach(function (item) { item.classList.remove("active"); item.classList.remove("show"); });
+        }
+
+        function fnClose_Dailog() {
+            $("#dialog").dialog("close");
+        }
+    </script>
+</body>
+
+</html>
